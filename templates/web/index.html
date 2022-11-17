@@ -34,7 +34,6 @@
                 </div>
                 <div class="filter-section" id="hamburger-menu">
                     <form action="">
-                        <input type="text" name="q" placeholder="Search anything..." />
                         <p class="filter-head">Sort by</p>
                         <div class="filter">
                             <label class="radio">
@@ -54,16 +53,22 @@
                             </label>
                             
                         </div>
+                        <p class="filter-head">Customers</p>
+                            <div class="filter">
+                                {% for customer in customers %}
+                                <label class="checkbox">
+                                    <input type="checkbox" value="{{customer.id}}" name="customer" />
+                                    <span class="label">{{customer.first_name}}</span>
+                                </label>
+                                {% endfor %}
+                                
+                            </div>
                         
                         <input type="submit" value="Filter" />
                     </form>
                 </div>
             </div>
         </section>
-        <div id="overlay"></div>
-        <div id="close">
-            <img src="{% static 'images/icons/close.svg' %}" alt="" />
-        </div>
     </section>
 </section>
 {% endblock %}

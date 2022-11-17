@@ -21,10 +21,11 @@ ul {
 del {
     text-decoration: line-through;
 }
+
 a.button {
-    background-color:blue;
+    background: #3a3a82;
     padding: 10px 18px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     color: #fff;
     text-align: center;
@@ -34,17 +35,20 @@ a.button {
     margin-left: 16px;
     border: 2px solid transparent;
 }
+
 a.button.nav:hover {
     color: #000;
     background: #fff;
     border: 2px solid #000;
 }
+
 a.button.logout:hover,
 a.button.delete:hover {
     color: red;
     background: #fff;
     border: 2px solid red;
 }
+
 a.button.login:hover,
 input.submit:hover {
     color: green !important;
@@ -141,6 +145,7 @@ img {
 #single-page-home {
     padding: 20px 0 50px;
     position: relative;
+    background: #d4d4d4;
 }
 
 #single-page-home section.wrapper {
@@ -159,7 +164,7 @@ header h1 {
 }
 
 header h1 a {
-    display: block;
+    width: 65%;
 }
 
 header a {
@@ -183,7 +188,8 @@ header div#hamburger-icon {
 #home section.spotlight h3 {
     font-size: 30px;
     margin-bottom: 1%;
-    color: #000;
+    color: #851b1b;
+    font-weight: 700;
     display: inline-block;
 }
 
@@ -210,10 +216,12 @@ header div#hamburger-icon {
 #home section.spotlight div.all-posts ul.posts li {
     width: 31%;
     margin-bottom: 3%;
+    padding: 20px;
 }
 
 #home section.spotlight div.all-posts ul.posts li:nth-last-child(-n + 3) {
     margin-bottom: 0;
+
 }
 
 #home section.spotlight div.all-posts ul.posts li div.blog-image {
@@ -231,12 +239,12 @@ header div#hamburger-icon {
 #home section.spotlight div.all-posts ul.posts li div.details div.date h4.name {
     font-size: 18px;
     margin-right: 25px;
-    color: blueviolet;
+    color: #712b63;
     font-weight: 700;
 }
 
 #home section.spotlight div.all-posts ul.posts li div.details div.date div.round {
-    background:blueviolet;
+    background: #0e0813;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -244,7 +252,7 @@ header div#hamburger-icon {
 }
 
 #home section.spotlight div.all-posts ul.posts li div.details div.date span {
-    color:blueviolet;
+    color: #522080;
     font-weight: 700;
     font-size: 16px;
 }
@@ -344,7 +352,7 @@ header div#hamburger-icon {
 }
 
 #home section.spotlight div.all-posts div.filter-section form div.filter label span {
-    color:blueviolet;
+    color: #a31e60;
     font-weight: 700;
     font-size: 16px;
 }
@@ -431,7 +439,7 @@ header div#hamburger-icon {
 }
 
 #home section.spotlight div.all-posts div.filter-section form input[type="submit"] {
-    background-color: #000;
+    background: linear-gradient(352deg, rgb(38 47 96) 0%, rgb(55 74 136) 100%);
     width: 100%;
     padding: 10px;
     font-size: 20px;
