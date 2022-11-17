@@ -13,9 +13,11 @@
                         {% for event in events %}
                         <li>
                             <a href="{% url 'posts:edit_event' pk=event.pk %}">
+                                {% if event.image %}
                                 <div class="blog-image">
                                     <img src="{{event.image.url}}" alt="Blog" />
                                 </div>
+                                {% endif %}
                                 <div class="details">
                                     <div class="date">
                                         <h4 class="name">{{event.event_type}}</h4>
@@ -36,31 +38,21 @@
                         <p class="filter-head">Sort by</p>
                         <div class="filter">
                             <label class="radio">
-                                <input type="radio" name="sort" value="title-asc" />
+                                <input type="radio" name="sort" value="today" />
                                 <span class="radio"></span>
                                 <span class="label">Today</span>
                             </label>
                             <label class="radio">
-                                <input type="radio" name="sort" value="title-desc" />
+                                <input type="radio" name="sort" value="week" />
                                 <span class="radio"></span>
-                                <span class="label">Tis Week</span>
+                                <span class="label">This Week</span>
                             </label>
                             <label class="radio">
-                                <input type="radio" name="sort" value="date-asc" />
+                                <input type="radio" name="sort" value="month" />
                                 <span class="radio"></span>
                                 <span class="label">This Month</span>
                             </label>
                             
-                        </div>
-                        <p class="filter-head">Events </p>
-                        <div class="filter">
-                            {% for event in events %}
-                            <label class="checkbox">
-                                <input type="checkbox" value="{{event.id}}" name="event" />
-                                <span class="label">{{event.title}}</span>
-                            </label>
-                            {% endfor %}
-
                         </div>
                         
                         <input type="submit" value="Filter" />

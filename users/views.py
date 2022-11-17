@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 from users.forms import UserForm
 from main.functions import generate_form_errors
+from posts.models import Customer
+from posts.forms import CustomerForm
 
 
 def login(request):
@@ -39,20 +41,35 @@ def logout(request):
 
 def signup(request):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        form = CustomerForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
+            # print(form.cleaned_data)
+            form_data = form.cleaned_data
+            
 
-            User.objects.create_user(
-                username=instance.username,
-                password=instance.password,
-                email=instance.email,
-                first_name=instance.first_name,
-                last_name=instance.last_name
-            )
+            if User.objects.filter(username=form_data['username']):
+                form = CustomerForm(instance=instance)
+                context = {
+                    "title": "Signup",
+                    "error": True,
+                    "message": "User with username already exists",
+                    "form": form,
+                }
+                return render(request, "users/signup.html", context=context)
+            else:
+                new_user = User.objects.create_user(
+                    username=form_data['username'],
+                    password=form_data['password'],
+                    email=form_data['email'],
+                    first_name=form_data['first_name'],
+                    last_name=form_data['last_name']
+                )
+                instance.user = new_user
+                instance.save()         
 
             user = authenticate(
-                request, username=instance.username, password=instance.password)
+                request, username=form_data['username'], password=form_data['password'])
             auth_login(request, user)
 
             return HttpResponseRedirect(reverse("web:index"))
@@ -60,7 +77,7 @@ def signup(request):
         else:
             message = generate_form_errors(form)
 
-            form = UserForm()
+            form = CustomerForm()
             context = {
                 "title": "Signup",
                 "error": True,
@@ -70,7 +87,7 @@ def signup(request):
             return render(request, "users/signup.html", context=context)
 
     else:
-        form = UserForm()
+        form = CustomerForm()
         context = {
             "title": "Signup",
             "form": form,
