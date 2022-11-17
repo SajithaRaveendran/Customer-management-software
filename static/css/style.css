@@ -660,6 +660,7 @@ div.pagination div.pages a:hover {
 #edit-post-home {
     padding: 3% 0 5%;
     position: relative;
+    background: #d4d4d4;
 }
 
 #edit-post-home section.spotlight h3 {
