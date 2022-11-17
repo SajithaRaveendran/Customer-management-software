@@ -8,7 +8,10 @@ class Event(models.Model):
     CHOICES = (
         ('MARRIAGE' , 'marriage'),
         ('BIRTHDAY' , 'birthday'),
-        ('FUNERAL' , 'funeral')
+        ('FUNERAL' , 'funeral'),
+        ('ENGAREMENT','engagement'),
+        ('BAPTISM', 'baptism'),
+        ('HOUSE WARMING','house warming')
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
